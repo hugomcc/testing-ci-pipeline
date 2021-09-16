@@ -3,7 +3,7 @@ name: Test and Build
 on:
   pull_request:
     branches:
-      - main
+      - main/hobby-next-app
 jobs:
   build-test:
     runs-on: ubuntu-latest
