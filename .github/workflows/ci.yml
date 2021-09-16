@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: cd /hobby-next-app
+      - name: cd hobby-next-app
         run: cd hobby-next-app
 
       - name: Build
