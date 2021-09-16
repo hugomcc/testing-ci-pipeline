@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mongo-db:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: adminpassword
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - ./.devdata/database:/data/db # data persistence
+
+
+  mongo-express-interface:
+    image: mongo-express
+    depends_on: 
+      - mongo-db
+    ports:
+      - 8083:8081
+    restart: always
+    environment:
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_SERVER: mongo-db # name of the mongodb container
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: adminpassword
+      ME_CONFIG_OPTIONS_EDITORTHEME: blackboard
+  
