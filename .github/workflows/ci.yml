@@ -22,11 +22,11 @@ jobs:
       - name: Install yarn
         run: npm install -g yarn
 
-      - name: Install dependencies
-        run: yarn install
-
       - name: cd hobby-next-app
         run: cd hobby-next-app
 
+      - name: Install dependencies
+        run: yarn install
+
       - name: Build
-        run: yarn build /hobb-next-app 
+        run: yarn build
