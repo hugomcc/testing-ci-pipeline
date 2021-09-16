@@ -4,9 +4,13 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hobby-next-app
 
     steps:
       - name: Checkout
@@ -18,9 +22,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-
-      - name: change to hobby-next-app folder
-        run: cd hobby-next-app
 
       - name: Install dependencies
         run: npm install
