@@ -4,4 +4,4 @@ const Home = () => {
     return <HobbyList />
 }
 
-export default Home
+export default Home;
