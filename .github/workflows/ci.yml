@@ -19,14 +19,11 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install yarn
-        run: npm install -g yarn
-
-      - name: cd hobby-next-app
+      - name: change to hobby-next-app folder
         run: cd hobby-next-app
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Build
-        run: yarn build
+        run: npm run build
