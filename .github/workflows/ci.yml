@@ -25,5 +25,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: cd /hobb-next-app
+        run: cd /hobb-next-app
+
       - name: Build
         run: yarn build /hobb-next-app 
