@@ -18,7 +18,7 @@ import { useGetHobiesQuery } from '../../../generated/gqlApi'
 import { CodeSharp } from '@material-ui/icons';
 
 import { client } from '../../api/backend'
-import { getSdk } from '../../../generated/gqlSdk';
+import { getSdk, Hobby } from '../../../generated/gqlSdk';
 // import Link from '@material-ui/core/Link';
 
 // function Copyright() {
@@ -84,7 +84,7 @@ const getHobbiesList = async () => await sdk.getHobies()
 
 const HobbyList = () => {
   const classes = useStyles();
-  const [hobbies, setHobbies] = useState()
+  const [hobbies, setHobbies] = useState<Hobby[]>()
 
   useEffect(() => {
     const getHobbiesList = async () => { 
