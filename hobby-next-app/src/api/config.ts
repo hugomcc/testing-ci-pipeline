@@ -4,7 +4,9 @@ export const endpoint = '/api/graphql'
 export const client = new GraphQLClient(endpoint, { headers: {} })
 
 interface ApiException extends Error {
-  new (message: string, errorCode: string, httpStatusCode: number)
+  // TODO: check what this does -> new (message: string, errorCode: string, httpStatusCode: number) - error during build
+  // new (message: string, errorCode: string, httpStatusCode: number)
+  new (message: string, errorCode: string, httpStatusCode: number): Error
 
   name: string
   status: number
