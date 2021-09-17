@@ -69,22 +69,23 @@ export function graphQLFetcher<TData, TVariables>(
           e.response.status
         )
       }
-      const serverException = e.response?.errors?.[0]?.extensions
-        ?.exception as Error
+      // TODO: check what this does - error during build
+            // const serverException = e?.response?.errors?.[0]?.extensions
+            //   ?.exception as Error
 
-      if (!serverException || !isApiException(serverException)) {
-        throw new GqlApiError(
-          `Unknown server error: ${serverException?.toString?.()}`,
-          'unknown',
-          500
-        )
-      }
+            // if (!serverException || !isApiException(serverException)) {
+            //   throw new GqlApiError(
+            //     `Unknown server error: ${serverException?.toString?.()}`,
+            //     'unknown',
+            //     500
+            //   )
+            // }
 
-      throw new GqlApiError(
-        serverException.response.message,
-        serverException.response.errorCode,
-        serverException.status
-      )
+            // throw new GqlApiError(
+            //   serverException.response.message,
+            //   serverException.response.errorCode,
+            //   serverException.status
+            // )
     }
   }
 }
