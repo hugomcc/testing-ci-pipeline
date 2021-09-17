@@ -12,7 +12,9 @@ const proxyMiddleware = createProxyMiddleware({
 export default async (req: express.Request, res: express.Response) => {
   const session = await getSession({ req })
   if (session) {
-    req.headers['x-user-id'] = session.user.id
+    // TODO: check what this does -> req.headers['x-user-id'] = session.user.id
+    // req.headers['x-user-id'] = session.user.id
+    req.headers['x-user-id'] = session?.user?.email ?? undefined
   }
   proxyMiddleware(req, res, console.error)
 }
