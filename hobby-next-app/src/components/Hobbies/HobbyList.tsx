@@ -146,7 +146,7 @@ const HobbyList = () => {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {hobbies && hobbies.map((hobby) => (
-              <Grid item key={hobby} xs={12} sm={6} md={4}>
+              <Grid item key={hobby.name} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
