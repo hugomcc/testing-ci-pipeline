@@ -1,4 +1,4 @@
-name: Test and Build
+name: Build next app
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-test:
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
