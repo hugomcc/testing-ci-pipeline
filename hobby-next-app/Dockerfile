@@ -1,4 +1,4 @@
-FROM node:16.8-alpine
+FROM node:16.8-alpine AS builder
 
 RUN mkdir -p /frontend
 COPY ./ /frontend
