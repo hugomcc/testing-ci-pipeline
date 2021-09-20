@@ -4,7 +4,9 @@ export const endpoint = '/api/graphql'
 export const client = new GraphQLClient(endpoint, { headers: {} })
 
 interface ApiException extends Error {
-  new (message: string, errorCode: string, httpStatusCode: number)
+  // TODO: check what this does -> new (message: string, errorCode: string, httpStatusCode: number) - error during build
+  // new (message: string, errorCode: string, httpStatusCode: number)
+  new (message: string, errorCode: string, httpStatusCode: number): Error
 
   name: string
   status: number
@@ -67,8 +69,16 @@ export function graphQLFetcher<TData, TVariables>(
           e.response.status
         )
       }
-      const serverException = e.response?.errors?.[0]?.extensions
-        ?.exception as Error
+      
+      // TODO: check what this does -> const serverException = e.response?.errors?.[0]?.extensions?.exception as Error - error during build
+      //const serverException = e.response?.errors?.[0]?.extensions?.exception as Error
+      const serverException = {
+        response: {
+          message: "",
+          errorCode: 0,
+          status: ""
+        }
+      }
 
       if (!serverException || !isApiException(serverException)) {
         throw new GqlApiError(

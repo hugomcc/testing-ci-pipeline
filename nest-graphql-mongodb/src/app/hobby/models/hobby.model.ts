@@ -7,6 +7,7 @@ import { Field, ObjectType } from '@nestjs/graphql';
 @ObjectType()
 @Schema()
 export class Hobby {
+  @Field(() => String)
   _id: MongooseSchema.Types.ObjectId;
 
   @Field(() => String)

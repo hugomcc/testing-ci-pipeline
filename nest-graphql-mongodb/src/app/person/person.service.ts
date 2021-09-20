@@ -25,7 +25,8 @@ export class PersonService {
   }
 
   list(filters: ListPersonInput) {
-    return this.personModel.find({ ...filters }).exec();
+    // return this.personModel.find({ ...filters }).exec();
+    return this.personModel.find({ ...filters }).populate('hobbies');
   }
 
   update(payload: UpdatePersonInput) {

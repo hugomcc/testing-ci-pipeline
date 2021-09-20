@@ -1,0 +1,49 @@
+name: Build next app
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./hobby-next-app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: docker build
+        run: docker build --target builder -t cms-frontend .
+
+# name: Build next app
+
+# on:
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     defaults:
+#       run:
+#         working-directory: ./hobby-next-app
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Setup NodeJS 16.8-alpine
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 16.8-alpine
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build
+#         run: npm run build

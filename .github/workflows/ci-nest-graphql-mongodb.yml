@@ -1,0 +1,20 @@
+name: Build nest app
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./nest-graphql-mongodb
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: docker build
+        run: docker build --target builder -t cms-backend .

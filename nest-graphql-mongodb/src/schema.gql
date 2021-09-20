@@ -12,6 +12,7 @@ input CreatePersonInput {
 }
 
 type Hobby {
+  _id: String!
   name: String!
 }
 
@@ -36,7 +37,7 @@ type Mutation {
 }
 
 type Person {
-  hobbies: [String!]!
+  hobbies: [Hobby!]!
   name: String!
 }
 

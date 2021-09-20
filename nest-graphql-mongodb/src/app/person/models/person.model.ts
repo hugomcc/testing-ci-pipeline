@@ -15,8 +15,10 @@ export class Person {
   @Prop()
   name: string;
 
-  @Field(() => [String]) 
-  @Prop({ type: [MongooseSchema.Types.ObjectId], ref: Hobby.name })
+  // @Field(() => [String]) 
+  // @Prop({ type: [MongooseSchema.Types.ObjectId], ref: Hobby.name })
+  @Field(() => [Hobby]) 
+  @Prop({ type: [MongooseSchema.Types.ObjectId], ref: () => Hobby })
   hobbies: MongooseSchema.Types.ObjectId[];
 //   @Prop()
 //   hobbies: Hobby[];
