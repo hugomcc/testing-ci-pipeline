@@ -1,8 +1,8 @@
 FROM node:16.8-alpine AS builder
 
-RUN mkdir -p /backend
-COPY ./ /backend
 
 WORKDIR /backend
+COPY package.json package-lock.json ./
 RUN npm ci
+COPY . .
 RUN npm run build
