@@ -2,12 +2,14 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Schema as MongooseSchema } from 'mongoose';
 
 import { Hobby } from '../models/hobby.model';
+import { Person } from 'src/app/person/models/person.model';
 import { HobbyService } from '../hobby.service';
 import {
   CreateHobbyInput,
   ListHobbyInput,
   UpdateHobbyInput,
 } from '../hobby.inputs';
+
 
 @Resolver(() => Hobby)
 export class HobbyResolver {
@@ -24,6 +26,14 @@ export class HobbyResolver {
   async hobbies(@Args('filters', { nullable: true }) filters?: ListHobbyInput) {
     return this.hobbyService.list(filters);
   }
+
+  // @Query(() => Person)
+  // async person() {
+  //   return {
+  //     name: "hihihi",
+  //     hobbies: ["hehehehe"]
+  //   };
+  // }
 
   @Mutation(() => Hobby)
   async createHobby(@Args('payload') payload: CreateHobbyInput) {
