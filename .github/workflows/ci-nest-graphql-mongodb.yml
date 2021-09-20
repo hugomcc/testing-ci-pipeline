@@ -16,5 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: docker build
+      - run: docker build -t cms-backend .
+
       - name: run docker
-        uses: docker run -it --name backend .
+      - run: docker run -it --name backend cms-backend
