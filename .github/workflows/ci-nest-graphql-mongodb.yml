@@ -18,6 +18,3 @@ jobs:
 
       - name: docker build
       - run: docker build -t cms-backend .
-
-      - name: run docker
-      - run: docker run -it --name backend cms-backend
